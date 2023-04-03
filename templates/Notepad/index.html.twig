@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    <script src={{ asset("assets/js/notepad.js") }}></script>
+{% endblock %}
+
+{% block title %}
+    Register page
+{% endblock %}
+
+{% block body %}
+    <header class="container-fluid">
+    <nav class="nav-top d-flex justify-content-between container align-items-center">
+        <img alt="logo" class="nav-icon">
+        <ul class="nav-menu d-flex align-items-center mb-0">
+        {% block navItems %}
+            <li class="nav-item" id="notification">
+                <img src={{ asset('assets/image/icons/icons8-notification-32.png') }} alt="">
+            </li>
+            <li class="nav-item"><a href="/">home</a></li>
+            <li class="nav-item" id="logout"><a href="#">logout</a></li>
+        {% endblock %}
+        </ul>
+    </nav>
+</header>
+    {% if notes %}
+        {% for note in notes %}
+            <div class="note ">
+                <h4 class="title">{{note.title ? note.title : " "}}</h4>
+                <p class="content">{{note.title ? note.title|truncate(100) : " "}}</p>
+                <button class="btn btn-outline-primary read-more" note-id={{ note.id ? note.id : null}}>read more</button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

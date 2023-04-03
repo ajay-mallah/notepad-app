@@ -1,0 +1,18 @@
+:root {
+    
+}
+
+body {
+    min-height: 100vh;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.form-container {
+    min-height: 100vh;
+}
